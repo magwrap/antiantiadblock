@@ -9,7 +9,6 @@ function App() {
 
   const pasteFromClipboard = async () => {
     const text = await navigator.clipboard.readText();
-    console.log(text);
     setUrl(text);
   };
 
@@ -17,17 +16,11 @@ function App() {
     let urlSplitted: string[];
     if (url.includes("watch")) {
       urlSplitted = url.split("="); // for links like https://www.youtube.com/watch?v=GdkBUdxWJjQ
-      console.log(urlSplitted);
 
       //GdkBUdxWJjQ
     } else {
       urlSplitted = url.split("/"); // for links like https://youtu.be/GdkBUdxWJjQ
     }
-
-    // console.log(
-    //   "returned link: ",
-    //   "https://www.youtube.com/embed/" + urlSplitted[urlSplitted.length - 1]
-    // );
 
     setSearchUrl(
       "https://www.youtube.com/embed/" + urlSplitted[urlSplitted.length - 1]
